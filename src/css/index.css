@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap"); /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-size: 15px;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+div.wrapper {
+  width: min(90%, 1050px);
+  margin: 0 auto;
+}
+
+.header-section {
+  background: url("../images/desktop/image-1.jpg") no-repeat center;
+}
+
+.header-section-wrapper {
+  padding-block: 3em 8em;
+}
+
+.dark-bg {
+  background-color: rgba(0, 0, 0, 0.573);
+}
+
+#trigger {
+  display: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  font-family: "Alata";
+}
+.list .close {
+  display: none;
+}
+
+.list-item:not(.logo) {
+  position: relative;
+  transform-origin: center;
+}
+.list-item:not(.logo)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  transition: transform 500ms ease;
+  transform: scaleX(0);
+}
+.list-item:not(.logo):hover::after {
+  transform: scaleX(1);
+}
+
+.list > .logo {
+  flex-grow: 1;
+}
+
+.hamburger {
+  display: none;
+}
+
+.main-title {
+  max-width: 600px;
+  padding: 17px 26px;
+  margin-top: 100px;
+  font-size: 41px;
+  font-family: "Josefin Sans";
+  text-transform: uppercase;
+  border: 2px solid white;
+}
+
+.text-section {
+  overflow: hidden;
+  position: relative;
+  margin-block: 7.5em;
+}
+.text-section .bg-image {
+  background: url("../images/desktop/image-2.jpg") no-repeat center;
+  min-height: 480px;
+}
+.text-section > .wrapper {
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: 65% 49%;
+}
+.text-section .text-container {
+  position: relative;
+  --padding:5.5em;
+  left: -140px;
+  background-color: white;
+  padding: var(--padding) 0 0 var(--padding);
+  color: black;
+}
+.text-section .text-title {
+  font-size: 35px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans";
+}
+.text-section article {
+  color: hsl(0deg, 0%, 41%);
+  font-family: "Alata";
+  font-size: 18px;
+}
+
+.grid-section {
+  color: black;
+  font-family: "Josefin Sans";
+  font-size: 35px;
+  margin-bottom: 60px;
+}
+.grid-section .caption-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.grid-section > .wrapper {
+  padding-block: 0.5em;
+  position: relative;
+}
+.grid-section .btn {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-size: 15px;
+  padding: 12px 48px 8px 48px;
+  transition: 500ms ease;
+}
+.grid-section .btn:hover {
+  color: white;
+  background-color: black;
+}
+.grid-section .grid {
+  margin-block: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 34px;
+  color: white;
+}
+.grid-section .grid div {
+  cursor: pointer;
+  min-height: 430px;
+}
+.grid-section .grid .dark-shadow {
+  display: flex;
+  align-items: flex-end;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4) 30%, transparent 70%);
+  padding: 0 4px 20px 20px;
+  transition: 500ms ease;
+}
+.grid-section .grid .dark-shadow:hover {
+  color: black;
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+footer {
+  font-family: "Alata";
+  background-color: black;
+  padding-block: 40px;
+}
+footer > .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .list {
+  margin-top: 20px;
+}
+footer .social > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+footer .copyright {
+  margin-top: 20px;
+  color: hsl(0deg, 0%, 55%);
+}
+
+.grid > div:nth-child(1) {
+  background: url("../images/desktop/image-3.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(2) {
+  background: url("../images/desktop/image-4.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(3) {
+  background: url("../images/desktop/image-5.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(4) {
+  background: url("../images/desktop/image-6.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(5) {
+  background: url("../images/desktop/image-7.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(6) {
+  background: url("../images/desktop/image-8.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(7) {
+  background: url("../images/desktop/image-9.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+.grid > div:nth-child(8) {
+  background: url("../images/desktop/image-10.jpg") no-repeat left top;
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 27px;
+  }
+  .label-trigger {
+    cursor: pointer;
+  }
+  #trigger:checked ~ header {
+    background-color: black;
+  }
+  #trigger:checked ~ header .close {
+    display: block;
+  }
+  #trigger:checked ~ header .hamburger {
+    display: none;
+  }
+  #trigger:checked ~ header .list-item:not(.logo) {
+    transform: scaleX(1);
+    pointer-events: all;
+  }
+  #trigger:checked ~ header .close {
+    display: block;
+  }
+  #trigger:checked ~ header .hamburger {
+    display: none;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    transition: 500ms ease;
+    overflow: hidden;
+  }
+  header .list {
+    display: block;
+    padding: 35px 30px;
+  }
+  header .list-item:not(.logo) {
+    pointer-events: none;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 300ms ease;
+    cursor: pointer;
+    font-family: "Josefin Sans";
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    width: fit-content;
+  }
+  header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+  }
+  header .hamburger {
+    display: block;
+  }
+  footer > .wrapper {
+    flex-direction: column;
+    justify-content: start !important;
+    gap: 30px;
+  }
+  footer .list {
+    flex-direction: column;
+  }
+  .social > div {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 1000px) {
+  .text-container {
+    --padding:3em !important;
+  }
+}
+@media (max-width: 800px) {
+  .text-section > .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .text-container {
+    padding: 4em 1.3em 2em 1.3em !important;
+    left: 0px !important;
+    text-align: center;
+  }
+  .text-container > .article {
+    font-size: 24px;
+  }
+}
+@media (max-width: 482px) {
+  .grid > div:nth-child(1) {
+    background: url("../images/mobile/image-3.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(2) {
+    background: url("../images/mobile/image-4.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(3) {
+    background: url("../images/mobile/image-5.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(4) {
+    background: url("../images/mobile/image-6.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(5) {
+    background: url("../images/mobile/image-7.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(6) {
+    background: url("../images/mobile/image-8.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(7) {
+    background: url("../images/mobile/image-9.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid > div:nth-child(8) {
+    background: url("../images/mobile/image-10.jpg") no-repeat left top;
+    background-size: cover;
+  }
+  .grid div {
+    min-height: 200px !important;
+  }
+  .grid-item {
+    background-position: center center !important;
+  }
+  .grid-section .btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .dark-shadow {
+    padding: 0px 150px 20px 20px !important;
+  }
+}/*# sourceMappingURL=index.css.map */

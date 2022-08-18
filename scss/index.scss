@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+
+@import './variables','./reset','./mixins','./functions','./loops';
+
+body{
+    font-size:$font-size;
+    color:white;
+}
+
+a{
+    color:white;
+}
+
+div.wrapper{
+    width: min(90%,1050px);
+    margin:0 auto;
+}
+
+.header-section{
+    @include set-bg-image(1);
+    // overflow-x: hidden;
+}
+
+.header-section-wrapper{
+    padding-block:3em 8em;
+}
+
+.dark-bg{
+    background-color: rgba(0, 0, 0, 0.573);
+}
+
+#trigger{
+    display: none;
+}
+
+.list{
+    @include flex-align-center;
+    gap:1.5em;
+    font-family: "Alata";
+
+    & .close{
+        display: none;
+    }
+}
+
+.list-item:not(.logo){
+    position: relative;
+    transform-origin: center;
+
+    &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        height:1px;
+        width: 100%;
+        background-color: white;
+        transition:transform 500ms ease;
+        transform: scaleX(0);
+    }
+
+    &:hover::after{
+        transform: scaleX(1);
+    }
+}
+
+.list > .logo{
+    flex-grow: 1;
+}
+
+.hamburger{
+    display: none;
+}
+
+.main-title{
+    max-width: 600px;
+    padding:17px 26px;
+    margin-top:100px;
+    font-size:41px;
+    font-family: "Josefin Sans";
+    text-transform: uppercase;
+    border:2px solid white;
+}
+
+.text-section{
+    overflow:hidden;
+    position: relative;
+    margin-block:7.5em;
+
+    & .bg-image{
+        @include set-bg-image(2);
+        min-height: 480px;
+    }
+
+    & > .wrapper{
+        display: grid;
+        align-items: flex-end;
+        grid-template-columns: 65% 49%;
+    }
+
+    & .text-container{
+        position: relative;
+        --padding:5.5em;
+        left: -140px;
+        background-color: white;
+        padding: var(--padding) 0 0 var(--padding);
+        color:black;
+    }
+
+    & .text-title{
+        font-size:35px;
+        margin-bottom:20px;
+        text-transform: uppercase;
+        font-family: "Josefin Sans";
+    }
+
+    & article{
+        color: $primary-very-dark-gray;
+        font-family: "Alata";
+        font-size: 18px;
+    }
+}
+
+.grid-section{
+    color:black;
+    font-family: "Josefin Sans";
+    font-size: 35px;
+    margin-bottom:60px;
+
+    .caption-container{
+        @include flex-align-center-justify-between;
+    }
+
+    & > .wrapper{
+        padding-block:0.5em;
+        position: relative;
+    }
+
+    & .btn{
+        background-color: white;
+        border:1px solid black;
+        color:black;
+        font-size:15px;
+        padding:12px 48px 8px 48px;
+        transition: 500ms ease;
+    
+        &:hover{
+            color: white;
+            background-color: black;
+        }
+    }
+
+    & .grid{
+        margin-block:2em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        gap:34px;
+        color:white;
+
+        & div{
+            cursor: pointer;
+            min-height:430px;
+        }
+
+        & .dark-shadow{
+            @include flex-align-end;
+            background-image: linear-gradient(
+                to top,
+                rgba(black,0.4) 30%,
+                transparent 70%
+            );
+            padding:0 4px 20px 20px;
+            transition: 500ms ease;
+        }
+
+        &  .dark-shadow:hover{
+            color:black;
+            background-image: none;
+            background-color: rgba(white,0.6);
+        }
+    }
+}
+
+footer{
+    font-family: 'Alata';
+    background-color: black;
+    padding-block:40px;
+
+    & > .wrapper{
+        @include flex-align-center-justify-between();
+    }
+
+    & .list{
+        margin-top:20px;
+    }
+
+    & .social{
+        & > div{
+            @include flex-align-center-justify-end;
+            gap:20px;
+        }
+    }
+
+    & .copyright{
+        margin-top:20px;
+        color:$primary-dark-gray;
+    }
+}
+
+@include set-grid-bg("desktop");
+@include mq;

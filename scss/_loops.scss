@@ -1,0 +1,10 @@
+@mixin set-grid-bg($device){
+    @for $i from 3 through 10{
+        $index: $i - 2;
+    
+        .grid > div:nth-child(#{$index}){
+            background: url("../images/#{$device}/image-#{$i}.jpg") no-repeat left top;
+            background-size: cover;
+        }
+    }
+}
